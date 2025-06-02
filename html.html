@@ -1,8 +1,189 @@
-<html>
+<!DOCTYPE html>
+<html lang="es">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Clan Mono - Inicio</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom, #5c3a00, #3e2600);
+      color: #f0e6d2;
+      font-family: Arial, sans-serif;
+      margin: 0; padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    nav {
+      margin-top: 50px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      font-size: 1.4em;
+    }
+    nav a {
+      color: #f0e6d2;
+      text-decoration: none;
+      cursor: pointer;
+      border: 2px solid transparent;
+      padding: 8px 15px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+    nav a:hover {
+      background-color: #8b5e00;
+      border-color: #d2b48c;
+    }
+    section {
+      max-width: 700px;
+      background-color: rgba(60, 40, 0, 0.7);
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px auto;
+      display: none;
+      color: #f0e6d2;
+      overflow-y: auto;
+      max-height: 80vh;
+    }
+    section.active {
+      display: block;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 15px;
+      color: #ffd700;
+    }
+    img.centered {
+      display: block;
+      margin: 20px auto;
+      max-width: 400px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #d2b48caa;
+    }
+    /* Imagen fija abajo centro */
+    .bottom-image {
+      position: fixed;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
 
+  <nav>
+    <a href="#" data-section="inicio">Inicio</a>
+    <a href="#" data-section="miembros">1 Miembros</a>
+    <a href="#" data-section="misiones">2 Misiones</a>
+    <a href="#" data-section="alianzas">3 Alianzas y Enemigos</a>
+    <a href="#" data-section="reglas">4 Reglas</a>
+    <a href="#" data-section="mas">5 Más acerca del clan</a>
+  </nav>
 
-<p style="text-align: center;"><b style="font-size: 56px;">CLAN MONO</b></p>
+  <section id="inicio" class="active">
+    <h2>Bienvenido al Clan Mono</h2>
+    <p>Selecciona alguna sección del menú para ver más información.</p>
+  </section>
 
+  <section id="miembros">
+    <h2>Miembros</h2>
+    <ul>
+      <li>1 Líder: elpollito3000</li>
+      <li>2 Co-líder: Franmarin12</li>
+      <li>3 Miembro: reil201037</li>
+      <li>4 Miembro: dani3lintopro</li>
+      <li>5 Miembro: manuelcicles</li>
+      <li>6 Miembro: elkebon3</li>
+      <li>7 Miembro: Doge054</li>
+      <li>8 Miembro: ALVARO11G</li>
+    </ul>
+  </section>
 
+  <section id="misiones">
+    <h2>Misiones</h2>
+    <ul>
+      <li>Conseguir armors para todo el clan</li>
+      <li>Acabar con nuestros enemigos</li>
+      <li>Hacer granjas en la base</li>
+      <li>Expandir la base</li>
+      <li>Reclutar nuevos miembros</li>
+      <li>Ser uno de los clanes más poderosos de HydraCraft</li>
+    </ul>
+  </section>
+
+  <section id="alianzas">
+    <h2>Alianzas y Enemigos</h2>
+    <h3>Alianzas:</h3>
+    <p>Clan IxI y gente que ayuda a matar a tpakillers, hackers y gente no deseada.</p>
+    <h3>Enemigos:</h3>
+    <p>Uno es "mateopapiro2" que raidea bases y es tpakiller.  
+       Todos los tpakillers, hackers y ladrones que sepamos (no darles oportunidades).</p>
+  </section>
+
+  <section id="reglas">
+    <h2>🛡️ Normas del Clan Mono – Minecraft</h2>
+    <p>
+      Respeto ante todo: Trata a todos con respeto. No se tolera acoso, racismo ni discriminación.<br/>
+      No al griefing: No destruir, robar o modificar sin permiso.<br/>
+      PvP solo con acuerdo.<br/>
+      Prohibido hacks/mods no permitidos.<br/>
+      Respeta el entorno del servidor.<br/>
+      Construcción con sentido común.<br/>
+      Zonas privadas respetar.<br/>
+      Participa y colabora.<br/>
+    </p>
+    <h3>🎧 Normas del Discord</h3>
+    <p>
+      Respeto y convivencia.<br/>
+      Usa canales adecuados.<br/>
+      No spam.<br/>
+      No contenido NSFW.<br/>
+      No autopromoción sin permiso.<br/>
+      Nickname apropiado.<br/>
+      Respeta al staff.<br/>
+      ¡Diviértete con cabeza!
+    </p>
+    <img src="reglas.png" alt="Reglas Clan Mono" class="centered" />
+  </section>
+
+  <section id="mas">
+    <h2>Más acerca del clan</h2>
+    <p>
+      Este clan se creó para ayudar a la gente que lo necesitaba.  
+      Gracias a sus integrantes hemos conseguido más que un clan, una familia con respeto y armonía.<br/>
+      Franmarin12 y yo (elpollito3000) lo creamos para alejarnos de gente mala, tpakillers y ladrones.<br/>
+      Un clan no es solo un nombre, es una familia.<br/>
+      Gracias a todos por hacerlo posible.<br/>
+      <b>ATT: elpollito3000</b>
+    </p>
+  </section>
+
+  <div class="bottom-image">
+    <img src="clanmonoimg.png" alt="Clan Mono" style="max-width: 200px;" />
+  </div>
+
+<script>
+  const links = document.querySelectorAll('nav a');
+  const sections = document.querySelectorAll('section');
+
+  links.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const target = link.getAttribute('data-section');
+
+      sections.forEach(sec => {
+        if (sec.id === target) {
+          sec.classList.add('active');
+        } else {
+          sec.classList.remove('active');
+        }
+      });
+    });
+  });
+</script>
+
+</body>
 </html>
