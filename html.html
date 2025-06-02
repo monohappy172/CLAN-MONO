@@ -3,57 +3,60 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Clan Mono - Inicio</title>
+  <title>Clan Mono - Página única</title>
   <style>
     body {
       background: linear-gradient(to bottom, #5c3a00, #3e2600);
       color: #f0e6d2;
       font-family: Arial, sans-serif;
-      margin: 0; padding: 0;
+      margin: 0;
+      padding: 0;
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+    }
+    header {
+      background-color: #462d00;
+      padding: 15px 0;
+      text-align: center;
+      font-size: 1.8em;
+      font-weight: bold;
+      color: #ffd700;
+      letter-spacing: 2px;
     }
     nav {
-      margin-top: 50px;
       display: flex;
-      flex-direction: column;
-      gap: 15px;
-      font-size: 1.4em;
+      justify-content: center;
+      background-color: #5c3a00;
+      border-bottom: 2px solid #d2b48c;
     }
     nav a {
       color: #f0e6d2;
+      padding: 15px 25px;
       text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1em;
+      border-bottom: 3px solid transparent;
+      transition: border-color 0.3s;
       cursor: pointer;
-      border: 2px solid transparent;
-      padding: 8px 15px;
-      border-radius: 6px;
-      transition: all 0.3s ease;
     }
-    nav a:hover {
-      background-color: #8b5e00;
-      border-color: #d2b48c;
+    nav a:hover,
+    nav a.active {
+      border-bottom: 3px solid #ffd700;
+      color: #ffd700;
     }
-    section {
+    main {
       max-width: 700px;
-      background-color: rgba(60, 40, 0, 0.7);
+      margin: 20px auto;
+      background: rgba(60, 40, 0, 0.8);
       border-radius: 10px;
       padding: 20px;
-      margin: 20px auto;
-      display: none;
       color: #f0e6d2;
-      overflow-y: auto;
-      max-height: 80vh;
+      min-height: 300px;
+    }
+    section {
+      display: none;
     }
     section.active {
       display: block;
-    }
-    h2 {
-      text-align: center;
-      margin-bottom: 15px;
-      color: #ffd700;
     }
     img.centered {
       display: block;
@@ -74,15 +77,18 @@
 </head>
 <body>
 
-  <nav>
-    <a href="#" data-section="inicio">Inicio</a>
-    <a href="#" data-section="miembros">1 Miembros</a>
-    <a href="#" data-section="misiones">2 Misiones</a>
-    <a href="#" data-section="alianzas">3 Alianzas y Enemigos</a>
-    <a href="#" data-section="reglas">4 Reglas</a>
-    <a href="#" data-section="mas">5 Más acerca del clan</a>
-  </nav>
+<header>Clan Mono</header>
 
+<nav>
+  <a href="#" data-target="inicio" class="active">Inicio</a>
+  <a href="#" data-target="miembros">1 Miembros</a>
+  <a href="#" data-target="misiones">2 Misiones</a>
+  <a href="#" data-target="alianzas">3 Alianzas y Enemigos</a>
+  <a href="#" data-target="reglas">4 Reglas</a>
+  <a href="#" data-target="mas">5 Más acerca del clan</a>
+</nav>
+
+<main>
   <section id="inicio" class="active">
     <h2>Bienvenido al Clan Mono</h2>
     <p>Selecciona alguna sección del menú para ver más información.</p>
@@ -119,7 +125,7 @@
     <h3>Alianzas:</h3>
     <p>Clan IxI y gente que ayuda a matar a tpakillers, hackers y gente no deseada.</p>
     <h3>Enemigos:</h3>
-    <p>Uno es "mateopapiro2" que raidea bases y es tpakiller.  
+    <p>Uno es "mateopapiro2" que raidea bases y es tpakiller.<br/>
        Todos los tpakillers, hackers y ladrones que sepamos (no darles oportunidades).</p>
   </section>
 
@@ -152,7 +158,7 @@
   <section id="mas">
     <h2>Más acerca del clan</h2>
     <p>
-      Este clan se creó para ayudar a la gente que lo necesitaba.  
+      Este clan se creó para ayudar a la gente que lo necesitaba.<br/>
       Gracias a sus integrantes hemos conseguido más que un clan, una familia con respeto y armonía.<br/>
       Franmarin12 y yo (elpollito3000) lo creamos para alejarnos de gente mala, tpakillers y ladrones.<br/>
       Un clan no es solo un nombre, es una familia.<br/>
@@ -160,30 +166,32 @@
       <b>ATT: elpollito3000</b>
     </p>
   </section>
+</main>
 
-  <div class="bottom-image">
-    <img src="clanmonoimg.png" alt="Clan Mono" style="max-width: 200px;" />
-  </div>
+<div class="bottom-image">
+  <img src="clanmonoimg.png" alt="Clan Mono" style="max-width: 200px;" />
+</div>
 
 <script>
-  const links = document.querySelectorAll('nav a');
-  const sections = document.querySelectorAll('section');
+  const navLinks = document.querySelectorAll('nav a');
+  const sections = document.querySelectorAll('main section');
 
-  links.forEach(link => {
+  navLinks.forEach(link => {
     link.addEventListener('click', e => {
       e.preventDefault();
-      const target = link.getAttribute('data-section');
+      const targetId = link.getAttribute('data-target');
 
-      sections.forEach(sec => {
-        if (sec.id === target) {
-          sec.classList.add('active');
-        } else {
-          sec.classList.remove('active');
-        }
-      });
+      // Quitar clase active de todos links y sections
+      navLinks.forEach(l => l.classList.remove('active'));
+      sections.forEach(sec => sec.classList.remove('active'));
+
+      // Añadir clase active al link clicado y sección correspondiente
+      link.classList.add('active');
+      document.getElementById(targetId).classList.add('active');
     });
   });
 </script>
 
 </body>
 </html>
+
